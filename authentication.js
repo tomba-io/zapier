@@ -1,12 +1,12 @@
 module.exports = {
-  type: 'custom',
+  type: "custom",
   test: {
-    url: 'https://api.tomba.io/v1/me',
-    method: 'GET',
+    url: "https://api.tomba.io/v1/me",
+    method: "GET",
     params: {},
     headers: {
-      'X-Tomba-Key': '{{bundle.authData.api_key}}',
-      'X-Tomba-Secret': '{{bundle.authData.secret_key}}',
+      "X-Tomba-Key": "{{bundle.authData.api_key}}",
+      "X-Tomba-Secret": "{{bundle.authData.secret_key}}",
     },
     body: {},
     removeMissingValuesFrom: {},
@@ -14,23 +14,23 @@ module.exports = {
   fields: [
     {
       computed: false,
-      key: 'api_key',
+      key: "api_key",
       required: true,
-      type: 'string',
-      label: 'API KEY',
+      type: "string",
+      label: "API KEY",
       helpText:
-        'Go to the [API Details](https://app.tomba.io/api) screen from your\nWebsite Dashboard to find your API Key.',
+        "Go to the [API Details](https://app.tomba.io/api) screen from your\nWebsite Dashboard to find your API Key.",
     },
     {
       computed: false,
-      key: 'secret_key',
+      key: "secret_key",
       required: true,
-      label: 'Secret Key',
-      type: 'string',
+      label: "Secret Key",
+      type: "string",
       helpText:
-        'Go to the [My account](https://app.tomba.io/accounts/edit) screen from your\nWebsite Dashboard to find your Secret Key.',
+        "Go to the [API Details](https://app.tomba.io/api) screen from your\nWebsite Dashboard to find your Secret Key.",
     },
   ],
   customConfig: {},
-  connectionLabel: '"{{api_key}} @ {{secret_key}}"',
+  connectionLabel: "{{data.email}} - {{data.first_name}} {{data.last_name}}",
 };
