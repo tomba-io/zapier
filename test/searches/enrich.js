@@ -5,10 +5,10 @@ const zapier = require("zapier-platform-core");
 const App = require("../../index");
 const appTester = zapier.createAppTester(App);
 
-describe("Create - new_lead", () => {
+describe("Search - enrich", () => {
   zapier.tools.env.inject();
 
-  it("should create an object", async () => {
+  it("should get an array", async () => {
     const bundle = {
       authData: {
         api_key: process.env.API_KEY,
@@ -16,16 +16,16 @@ describe("Create - new_lead", () => {
       },
 
       inputData: {
-        email: "test@tomba.io",
-        first_name: "Test",
-        last_name: "User",
+        email: "contact@tomba.io",
       },
     };
 
-    const result = await appTester(
-      App.creates["new_lead"].operation.perform,
+    const results = await appTester(
+      App.searches["enrich"].operation.perform,
       bundle
     );
-    result.should.not.be.an.Array();
+    results.should.be.an.Array();
+    results.length.should.be.aboveOrEqual(1);
+    results[0].should.have.property("data");
   });
 });
