@@ -1,12 +1,12 @@
 {
   "name": "tomba",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Contact anyone, Data to power your entire business",
   "main": "index.js",
   "scripts": {
     "test": "mocha --recursive -t 10000",
-    "push": "zapier push" 
-
+    "push": "zapier push",
+    "validate": "zapier validate"
   },
   "engines": {
     "node": ">=v12",
@@ -17,7 +17,8 @@
   },
   "devDependencies": {
     "mocha": "^5.2.0",
-    "should": "^13.2.0"
+    "should": "^13.2.0",
+    "zapier-platform-cli": "^17.7.2"
   },
   "private": true,
   "zapier": {
