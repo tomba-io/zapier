@@ -1,4 +1,4 @@
-<p align="center"><img src="https://developer.tomba.io/images/logo-a532e775.png" height='60' /></p>
+<p align="center"><img src="https://tomba.io/logo.png" height='60' /></p>
 
 <h3 align="center">Tomba Email Finder.</h3>
 
@@ -8,7 +8,7 @@ This integration integrates a Tomba instance with 2000+ third party web services
 
 ## Documentation
 
-- Tomba [API](https://developer.tomba.io/)
+- Tomba [API](https://docs.tomba.io/introduction)
 - Zapier [start](https://zapier.com/developer/start/introduction/)
 
 ## Requirements
@@ -28,6 +28,18 @@ yarn test
 ```
 
 ### Deploying Your App
+
+```bash
+yarn push
+```
+
+### Validating Your App
+
+```bash
+yarn validate
+```
+
+### Submitting Your App
 
 ```bash
 yarn push
