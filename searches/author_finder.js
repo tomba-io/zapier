@@ -81,6 +81,5 @@ module.exports = {
     label: "Author Finder",
     description: "Enter a URL to find the author's email address.",
     hidden: false,
-    important: true,
   },
 };

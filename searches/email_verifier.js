@@ -107,6 +107,5 @@ module.exports = {
     description:
       "The Email Verification tool lets you check the deliverability of any email address without sending an email",
     hidden: false,
-    important: true,
   },
 };

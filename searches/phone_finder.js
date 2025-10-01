@@ -102,6 +102,5 @@ module.exports = {
     description:
       "Phone Finder helps you search for phone numbers based on an email, domain, or LinkedIn URL. Provide one of these parameters to retrieve associated phone data.",
     hidden: false,
-    important: true,
   },
 };

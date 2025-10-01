@@ -75,6 +75,5 @@ module.exports = {
     label: "Count Email",
     description: "Returns total email addresses we have for one domain.",
     hidden: false,
-    important: true,
   },
 };

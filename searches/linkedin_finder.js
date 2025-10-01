@@ -83,6 +83,5 @@ module.exports = {
     description:
       "Enter a LinkedIn profile URL to find the associated email address.",
     hidden: false,
-    important: true,
   },
 };

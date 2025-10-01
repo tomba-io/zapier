@@ -61,6 +61,5 @@ module.exports = {
     label: "Similar Domains",
     description: "Retrieve similar domains based on a specific domain.",
     hidden: false,
-    important: true,
   },
 };

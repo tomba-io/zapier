@@ -81,6 +81,5 @@ module.exports = {
     label: "Email Enrichment",
     description: "Enter an email address to enrich its data.",
     hidden: false,
-    important: true,
   },
 };

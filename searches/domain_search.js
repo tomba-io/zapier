@@ -157,6 +157,5 @@ module.exports = {
     label: "Domain Search",
     description: "Give domain and it returns all the email addresses.",
     hidden: false,
-    important: true,
   },
 };

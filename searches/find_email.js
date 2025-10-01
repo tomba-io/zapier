@@ -91,6 +91,5 @@ module.exports = {
     label: "Find Email",
     description: "Enter a full name and the domain name of the email address.",
     hidden: false,
-    important: true,
   },
 };

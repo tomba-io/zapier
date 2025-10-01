@@ -85,6 +85,5 @@ module.exports = {
     description:
       "Phone validator allows you to validate a phone number and retrieve its associated information.",
     hidden: false,
-    important: true,
   },
 };
