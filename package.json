@@ -1,6 +1,6 @@
 {
   "name": "tomba",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Contact anyone, Data to power your entire business",
   "main": "index.js",
   "scripts": {
