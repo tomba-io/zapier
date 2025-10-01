@@ -96,7 +96,7 @@ module.exports = {
     ],
   },
   key: "phone_finder",
-  noun: "Phone",
+  noun: "Phone Finder",
   display: {
     label: "Phone Finder",
     description:

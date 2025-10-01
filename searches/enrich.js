@@ -76,7 +76,7 @@ module.exports = {
     ],
   },
   key: "enrich",
-  noun: "Find",
+  noun: "Email Enrich",
   display: {
     label: "Email Enrichment",
     description: "Enter an email address to enrich its data.",
