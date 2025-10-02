@@ -76,7 +76,7 @@ module.exports = {
     ],
   },
   key: "author_finder",
-  noun: "Author Finder",
+  noun: "Author",
   display: {
     label: "Author Finder",
     description: "Enter a URL to find the author's email address.",

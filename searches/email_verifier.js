@@ -101,7 +101,7 @@ module.exports = {
     ],
   },
   key: "email_verifier",
-  noun: "Verifier",
+  noun: "Email",
   display: {
     label: "Email Verifier",
     description:

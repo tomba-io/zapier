@@ -70,7 +70,7 @@ module.exports = {
     ],
   },
   key: "count_email",
-  noun: "Count Email",
+  noun: "Email",
   display: {
     label: "Count Email",
     description: "Returns total email addresses we have for one domain.",

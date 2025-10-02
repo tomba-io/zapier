@@ -152,7 +152,7 @@ module.exports = {
     ],
   },
   key: "domain_search",
-  noun: "Domain Search",
+  noun: "Domain",
   display: {
     label: "Domain Search",
     description: "Give domain and it returns all the email addresses.",

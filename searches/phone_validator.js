@@ -79,7 +79,7 @@ module.exports = {
     ],
   },
   key: "phone_validator",
-  noun: "Phone Validator",
+  noun: "Phone",
   display: {
     label: "Phone Validator",
     description:

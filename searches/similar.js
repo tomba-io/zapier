@@ -56,7 +56,7 @@ module.exports = {
     ],
   },
   key: "similar",
-  noun: "Similar Domains",
+  noun: "Domain",
   display: {
     label: "Similar Domains",
     description: "Retrieve similar domains based on a specific domain.",

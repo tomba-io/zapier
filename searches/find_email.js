@@ -86,7 +86,7 @@ module.exports = {
     ],
   },
   key: "find_email",
-  noun: "Find Email",
+  noun: "Email",
   display: {
     label: "Find Email",
     description: "Enter a full name and the domain name of the email address.",

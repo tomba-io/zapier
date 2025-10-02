@@ -48,7 +48,7 @@ module.exports = {
     sample: { data: { id: 117 } },
   },
   key: "new_lead",
-  noun: "Create Lead",
+  noun: "Lead",
   display: {
     label: "Create Lead",
     description:

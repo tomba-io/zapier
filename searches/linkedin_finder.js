@@ -77,7 +77,7 @@ module.exports = {
     ],
   },
   key: "linkedin_finder",
-  noun: "LinkedIn Finder",
+  noun: "LinkedIn",
   display: {
     label: "LinkedIn Finder",
     description:

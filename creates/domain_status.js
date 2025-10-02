@@ -31,7 +31,7 @@ module.exports = {
     ],
   },
   key: "Domain_status",
-  noun: "Domain Status",
+  noun: "Domain",
   display: {
     label: "Domain Status",
     description: "Returns domain status if is webmail or disposable.",
