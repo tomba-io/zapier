@@ -11,6 +11,10 @@ const perform = (z, bundle) => {
     params: {},
   };
 
+  // Add optional enrich_mobile parameter if provided
+  if (bundle.inputData.enrich_mobile) {
+    options.params.enrich_mobile = bundle.inputData.enrich_mobile;
+  }
   return z.request(options).then((response) => {
     response.throwForStatus();
     const results = response.json;
@@ -31,6 +35,16 @@ module.exports = {
         type: "string",
         helpText: "The email address you want to verify.",
         required: true,
+        list: false,
+        altersDynamicFields: false,
+      },
+      {
+        key: "enrich_mobile",
+        label: "Enrich with Phone Number",
+        type: "boolean",
+        helpText:
+          "Set to true to get the phone number associated with the email address found.",
+        required: false,
         list: false,
         altersDynamicFields: false,
       },
