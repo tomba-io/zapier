@@ -11,6 +11,20 @@ const perform = (z, bundle) => {
     },
   };
 
+  // Add optional parameters if provided
+  if (bundle.inputData.page) {
+    options.params.page = bundle.inputData.page;
+  }
+  if (bundle.inputData.limit) {
+    options.params.limit = bundle.inputData.limit;
+  }
+  if (bundle.inputData.department) {
+    options.params.department = bundle.inputData.department;
+  }
+  if (bundle.inputData.type) {
+    options.params.type = bundle.inputData.type;
+  }
+
   return z.request(options).then((response) => {
     response.throwForStatus();
     const results = response.json;
@@ -31,6 +45,44 @@ module.exports = {
         type: "string",
         helpText: "Domain name from which you want to find the email addresses",
         required: true,
+        list: false,
+        altersDynamicFields: false,
+      },
+      {
+        key: "page",
+        label: "Page",
+        type: "integer",
+        helpText: "Page number for pagination (default: 1).",
+        required: false,
+        list: false,
+        altersDynamicFields: false,
+      },
+      {
+        key: "limit",
+        label: "Limit",
+        type: "integer",
+        helpText:
+          "Number of results to return per page (default: 10, max: 100).",
+        required: false,
+        list: false,
+        altersDynamicFields: false,
+      },
+      {
+        key: "department",
+        label: "Department",
+        type: "string",
+        helpText:
+          "Filter by department (e.g., 'sales', 'marketing', 'engineering', 'hr').",
+        required: false,
+        list: false,
+        altersDynamicFields: false,
+      },
+      {
+        key: "type",
+        label: "Email Type",
+        type: "string",
+        helpText: "Filter by email type (e.g., 'personal', 'generic').",
+        required: false,
         list: false,
         altersDynamicFields: false,
       },
