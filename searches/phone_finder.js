@@ -21,6 +21,9 @@ const perform = (z, bundle) => {
   if (bundle.inputData.linkedin) {
     options.params.linkedin = bundle.inputData.linkedin;
   }
+  if (bundle.inputData.full) {
+    options.params.full = bundle.inputData.full;
+  }
 
   return z.request(options).then((response) => {
     response.throwForStatus();
@@ -61,6 +64,16 @@ module.exports = {
         type: "string",
         helpText:
           "LinkedIn profile URL to search for associated phone numbers.",
+        required: false,
+        list: false,
+        altersDynamicFields: false,
+      },
+      {
+        key: "full",
+        label: "Get All Phone Numbers",
+        type: "boolean",
+        helpText:
+          "Set to true to get the array of all phone numbers associated with the email, domain, or LinkedIn URL provided.",
         required: false,
         list: false,
         altersDynamicFields: false,
