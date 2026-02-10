@@ -1,7 +1,7 @@
 const authentication = require("./authentication");
 const newLeadCreate = require("./creates/new_lead.js");
-const countEmailCreate = require("./creates/count_email.js");
-const domainStatusCreate = require("./creates/domain_status.js");
+const countEmailCreate = require("./searches/count_email.js");
+const domainStatusCreate = require("./searches/domain_status.js");
 const findEmailSearch = require("./searches/find_email.js");
 const emailVerifierSearch = require("./searches/email_verifier.js");
 const domainSearchSearch = require("./searches/domain_search.js");
@@ -11,6 +11,8 @@ const linkedinFinderSearch = require("./searches/linkedin_finder.js");
 const similarSearch = require("./searches/similar.js");
 const authorFinderSearch = require("./searches/author_finder.js");
 const enrichSearch = require("./searches/enrich.js");
+const companiesSearch = require("./searches/companies.js");
+const technologySearch = require("./searches/technology.js");
 
 module.exports = {
   version: require("./package.json").version,
@@ -31,5 +33,7 @@ module.exports = {
     [similarSearch.key]: similarSearch,
     [authorFinderSearch.key]: authorFinderSearch,
     [enrichSearch.key]: enrichSearch,
+    [companiesSearch.key]: companiesSearch,
+    [technologySearch.key]: technologySearch,
   },
 };
