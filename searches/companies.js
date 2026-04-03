@@ -26,6 +26,11 @@ const perform = (z, bundle) => {
     options.body.page = bundle.inputData.page;
   }
 
+  // Add optional webhook_url parameter if provided
+  if (bundle.inputData.webhook_url) {
+    options.body.webhook_url = bundle.inputData.webhook_url;
+  }
+
   return z.request(options).then((response) => {
     response.throwForStatus();
     const results = response.json;
@@ -65,6 +70,16 @@ module.exports = {
         label: "Page",
         type: "integer",
         helpText: "Page number for pagination (1-1000, default: 1).",
+        required: false,
+        list: false,
+        altersDynamicFields: false,
+      },
+      {
+        key: "webhook_url",
+        label: "Webhook URL for Async Response",
+        type: "string",
+        helpText:
+          "Optional: Provide a webhook URL to receive the results asynchronously. If not provided, results will be returned in the response.",
         required: false,
         list: false,
         altersDynamicFields: false,

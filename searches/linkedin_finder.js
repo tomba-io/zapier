@@ -17,6 +17,10 @@ const perform = (z, bundle) => {
   if (bundle.inputData.enrich_mobile) {
     options.params.enrich_mobile = bundle.inputData.enrich_mobile;
   }
+  // Add optional webhook_url parameter if provided
+  if (bundle.inputData.webhook_url) {
+    options.params.webhook_url = bundle.inputData.webhook_url;
+  }
 
   return z.request(options).then((response) => {
     response.throwForStatus();
@@ -48,6 +52,16 @@ module.exports = {
         type: "boolean",
         helpText:
           "Set to true to get the phone number associated with the email address found.",
+        required: false,
+        list: false,
+        altersDynamicFields: false,
+      },
+      {
+        key: "webhook_url",
+        label: "Webhook URL for Async Response",
+        type: "string",
+        helpText:
+          "Optional: Provide a webhook URL to receive the results asynchronously. If not provided, results will be returned in the response.",
         required: false,
         list: false,
         altersDynamicFields: false,

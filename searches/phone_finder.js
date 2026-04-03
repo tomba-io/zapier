@@ -18,6 +18,9 @@ const perform = (z, bundle) => {
   if (bundle.inputData.domain) {
     options.params.domain = bundle.inputData.domain;
   }
+  if (bundle.inputData.webhook_url) {
+    options.params.webhook_url = bundle.inputData.webhook_url;
+  }
   if (bundle.inputData.linkedin) {
     options.params.linkedin = bundle.inputData.linkedin;
   }
@@ -74,6 +77,16 @@ module.exports = {
         type: "boolean",
         helpText:
           "Set to true to get the array of all phone numbers associated with the email, domain, or LinkedIn URL provided.",
+        required: false,
+        list: false,
+        altersDynamicFields: false,
+      },
+      {
+        key: "webhook_url",
+        label: "Webhook URL for Async Response",
+        type: "string",
+        helpText:
+          "Optional: Provide a webhook URL to receive the results asynchronously. If not provided, results will be returned in the response.",
         required: false,
         list: false,
         altersDynamicFields: false,

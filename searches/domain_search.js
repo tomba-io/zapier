@@ -15,6 +15,9 @@ const perform = (z, bundle) => {
   if (bundle.inputData.page) {
     options.params.page = bundle.inputData.page;
   }
+  if (bundle.inputData.webhook_url) {
+    options.params.webhook_url = bundle.inputData.webhook_url;
+  }
   if (bundle.inputData.limit) {
     options.params.limit = bundle.inputData.limit;
   }
@@ -82,6 +85,16 @@ module.exports = {
         label: "Email Type",
         type: "string",
         helpText: "Filter by email type (e.g., 'personal', 'generic').",
+        required: false,
+        list: false,
+        altersDynamicFields: false,
+      },
+      {
+        key: "webhook_url",
+        label: "Webhook URL for Async Response",
+        type: "string",
+        helpText:
+          "Optional: Provide a webhook URL to receive the results asynchronously. If not provided, results will be returned in the response.",
         required: false,
         list: false,
         altersDynamicFields: false,
