@@ -12,6 +12,9 @@ const perform = (z, bundle) => {
   };
 
   // Add optional parameters if provided
+  if (bundle.inputData.company) {
+    options.params.company = bundle.inputData.company;
+  }
   if (bundle.inputData.page) {
     options.params.page = bundle.inputData.page;
   }
@@ -27,6 +30,12 @@ const perform = (z, bundle) => {
   if (bundle.inputData.type) {
     options.params.type = bundle.inputData.type;
   }
+  if (bundle.inputData.country) {
+    options.params.country = bundle.inputData.country;
+  }
+  if (bundle.inputData.enrich_mobile) {
+    options.params.enrich_mobile = bundle.inputData.enrich_mobile;
+  }
 
   return z.request(options).then((response) => {
     response.throwForStatus();
@@ -41,13 +50,25 @@ const perform = (z, bundle) => {
 module.exports = {
   operation: {
     perform: perform,
+    cleanInputData: false,
     inputFields: [
       {
         key: "domain",
         label: "Domain",
         type: "string",
-        helpText: "Domain name from which you want to find the email addresses",
-        required: true,
+        helpText:
+          'Domain name from which you want to find the email addresses. For example, "stripe.com". Either domain or company is required.',
+        required: false,
+        list: false,
+        altersDynamicFields: false,
+      },
+      {
+        key: "company",
+        label: "Company",
+        type: "string",
+        helpText:
+          'Company name from which you want to find the email addresses. For example, "stripe". Either domain or company is required.',
+        required: false,
         list: false,
         altersDynamicFields: false,
       },
@@ -85,6 +106,26 @@ module.exports = {
         label: "Email Type",
         type: "string",
         helpText: "Filter by email type (e.g., 'personal', 'generic').",
+        required: false,
+        list: false,
+        altersDynamicFields: false,
+      },
+      {
+        key: "country",
+        label: "Country",
+        type: "string",
+        helpText:
+          'Two-letter country code to filter results. For example, "US".',
+        required: false,
+        list: false,
+        altersDynamicFields: false,
+      },
+      {
+        key: "enrich_mobile",
+        label: "Enrich with Phone Number",
+        type: "boolean",
+        helpText:
+          "Set to true to get the phone number associated with the email addresses found.",
         required: false,
         list: false,
         altersDynamicFields: false,

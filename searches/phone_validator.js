@@ -31,6 +31,7 @@ const perform = (z, bundle) => {
 module.exports = {
   operation: {
     perform: perform,
+    cleanInputData: false,
     inputFields: [
       {
         key: "phone",

@@ -1,5 +1,6 @@
 module.exports = {
   operation: {
+    cleanInputData: false,
     perform: {
       url: "https://api.tomba.io/v1/email-count/",
       method: "GET",

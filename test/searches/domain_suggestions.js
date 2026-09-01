@@ -1,14 +1,14 @@
-require("should");
+require('should');
 
-const zapier = require("zapier-platform-core");
+const zapier = require('zapier-platform-core');
 
-const App = require("../../index");
+const App = require('../../index');
 const appTester = zapier.createAppTester(App);
 
-describe("Search - companies", () => {
+describe('Search - domain_suggestions', () => {
   zapier.tools.env.inject();
 
-  it("should get an array", async () => {
+  it('should get an array', async () => {
     const bundle = {
       authData: {
         api_key: process.env.API_KEY,
@@ -16,13 +16,13 @@ describe("Search - companies", () => {
       },
 
       inputData: {
-        country: "US",
+        query: 'tomba',
       },
     };
 
     const results = await appTester(
-      App.searches["companies"].operation.perform,
-      bundle,
+      App.searches['domain_suggestions'].operation.perform,
+      bundle
     );
     results.should.be.an.Array();
   });

@@ -1,5 +1,9 @@
 const authentication = require("./authentication");
 const newLeadCreate = require("./creates/new_lead.js");
+const flagCreate = require("./creates/flag.js");
+const leadsListCreate = require("./creates/leads_list.js");
+const attributeCreate = require("./creates/attribute.js");
+const keyCreate = require("./creates/key.js");
 const countEmailCreate = require("./searches/count_email.js");
 const domainStatusCreate = require("./searches/domain_status.js");
 const findEmailSearch = require("./searches/find_email.js");
@@ -13,6 +17,21 @@ const authorFinderSearch = require("./searches/author_finder.js");
 const enrichSearch = require("./searches/enrich.js");
 const companiesSearch = require("./searches/companies.js");
 const technologySearch = require("./searches/technology.js");
+const emailFormatSearch = require("./searches/email_format.js");
+const emailSourcesSearch = require("./searches/email_sources.js");
+const domainSuggestionsSearch = require("./searches/domain_suggestions.js");
+const locationSearch = require("./searches/location.js");
+const personFindSearch = require("./searches/person_find.js");
+const companyFindSearch = require("./searches/company_find.js");
+const combinedFindSearch = require("./searches/combined_find.js");
+const accountSearch = require("./searches/account.js");
+const usageSearch = require("./searches/usage.js");
+const logsSearch = require("./searches/logs.js");
+const leadsSearch = require("./searches/leads.js");
+const leadsListsSearch = require("./searches/leads_lists.js");
+const attributesSearch = require("./searches/attributes.js");
+const keysSearch = require("./searches/keys.js");
+const flagsSearch = require("./searches/flags.js");
 
 module.exports = {
   version: require("./package.json").version,
@@ -22,6 +41,10 @@ module.exports = {
     [newLeadCreate.key]: newLeadCreate,
     [countEmailCreate.key]: countEmailCreate,
     [domainStatusCreate.key]: domainStatusCreate,
+    [flagCreate.key]: flagCreate,
+    [leadsListCreate.key]: leadsListCreate,
+    [attributeCreate.key]: attributeCreate,
+    [keyCreate.key]: keyCreate,
   },
   searches: {
     [findEmailSearch.key]: findEmailSearch,
@@ -35,5 +58,20 @@ module.exports = {
     [enrichSearch.key]: enrichSearch,
     [companiesSearch.key]: companiesSearch,
     [technologySearch.key]: technologySearch,
+    [emailFormatSearch.key]: emailFormatSearch,
+    [emailSourcesSearch.key]: emailSourcesSearch,
+    [domainSuggestionsSearch.key]: domainSuggestionsSearch,
+    [locationSearch.key]: locationSearch,
+    [personFindSearch.key]: personFindSearch,
+    [companyFindSearch.key]: companyFindSearch,
+    [combinedFindSearch.key]: combinedFindSearch,
+    [accountSearch.key]: accountSearch,
+    [usageSearch.key]: usageSearch,
+    [logsSearch.key]: logsSearch,
+    [leadsSearch.key]: leadsSearch,
+    [leadsListsSearch.key]: leadsListsSearch,
+    [attributesSearch.key]: attributesSearch,
+    [keysSearch.key]: keysSearch,
+    [flagsSearch.key]: flagsSearch,
   },
 };

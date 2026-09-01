@@ -1,6 +1,6 @@
 const perform = (z, bundle) => {
   const options = {
-    url: `https://api.tomba.io/v1/similar`,
+    url: `https://api.tomba.io/v1/email-format`,
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -17,8 +17,6 @@ const perform = (z, bundle) => {
     response.throwForStatus();
     const results = response.json;
 
-    // You can do any parsing you need for results here before returning them
-
     return [results];
   });
 };
@@ -33,34 +31,31 @@ module.exports = {
         label: "Domain",
         type: "string",
         helpText:
-          "Domain name to retrieve similar domains for (e.g., 'google.com').",
+          'Domain name to find the email format for (e.g., "google.com").',
         required: true,
         list: false,
         altersDynamicFields: false,
       },
     ],
     sample: {
-      data: [
-        {
-          website_url: "similar-example.com",
-          name: "Similar Example Corp",
-        },
-        {
-          website_url: "example-clone.com",
-          name: "Example Clone Inc",
-        },
-      ],
+      data: {
+        email_format: "{first}.{last}",
+        domain: "google.com",
+        confidence: 95,
+      },
     },
     outputFields: [
-      { key: "data__website_url", type: "string" },
-      { key: "data__name", type: "string" },
+      { key: "data__email_format", type: "string" },
+      { key: "data__domain", type: "string" },
+      { key: "data__confidence", type: "integer" },
     ],
   },
-  key: "similar",
-  noun: "Domain",
+  key: "email_format",
+  noun: "Email Format",
   display: {
-    label: "Similar Domains",
-    description: "Retrieve similar domains based on a specific domain.",
+    label: "Email Format",
+    description:
+      "Find the email format used by a company based on its domain name.",
     hidden: false,
   },
 };

@@ -13,6 +13,11 @@ const perform = (z, bundle) => {
     },
   };
 
+  // Add optional webhook_url parameter if provided
+  if (bundle.inputData.webhook_url) {
+    options.params.webhook_url = bundle.inputData.webhook_url;
+  }
+
   return z.request(options).then((response) => {
     response.throwForStatus();
     const results = response.json;
@@ -26,14 +31,25 @@ const perform = (z, bundle) => {
 module.exports = {
   operation: {
     perform: perform,
+    cleanInputData: false,
     inputFields: [
       {
         key: "url",
-        label: "url",
+        label: "URL",
         type: "string",
         helpText:
           "Please enter a URL, for example `https://www.example.com/blog/xxxxx`.",
         required: true,
+        list: false,
+        altersDynamicFields: false,
+      },
+      {
+        key: "webhook_url",
+        label: "Webhook URL for Async Response",
+        type: "string",
+        helpText:
+          "Optional: Provide a webhook URL to receive the results asynchronously. If not provided, results will be returned in the response.",
+        required: false,
         list: false,
         altersDynamicFields: false,
       },

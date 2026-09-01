@@ -17,6 +17,10 @@ const perform = (z, bundle) => {
   if (bundle.inputData.enrich_mobile) {
     options.params.enrich_mobile = bundle.inputData.enrich_mobile;
   }
+  // Add optional full parameter if provided
+  if (bundle.inputData.full) {
+    options.params.full = bundle.inputData.full;
+  }
   // Add optional webhook_url parameter if provided
   if (bundle.inputData.webhook_url) {
     options.params.webhook_url = bundle.inputData.webhook_url;
@@ -35,6 +39,7 @@ const perform = (z, bundle) => {
 module.exports = {
   operation: {
     perform: perform,
+    cleanInputData: false,
     inputFields: [
       {
         key: "url",
@@ -52,6 +57,16 @@ module.exports = {
         type: "boolean",
         helpText:
           "Set to true to get the phone number associated with the email address found.",
+        required: false,
+        list: false,
+        altersDynamicFields: false,
+      },
+      {
+        key: "full",
+        label: "Get Full Emails",
+        type: "boolean",
+        helpText:
+          "Set to true to get all emails associated with the LinkedIn URL. By default, only the most likely email is returned.",
         required: false,
         list: false,
         altersDynamicFields: false,

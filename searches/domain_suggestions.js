@@ -1,6 +1,6 @@
 const perform = (z, bundle) => {
   const options = {
-    url: `https://api.tomba.io/v1/similar`,
+    url: `https://api.tomba.io/v1/domain-suggestions`,
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -9,15 +9,13 @@ const perform = (z, bundle) => {
       "X-Tomba-Secret": bundle.authData.secret_key,
     },
     params: {
-      domain: bundle.inputData.domain,
+      query: bundle.inputData.query,
     },
   };
 
   return z.request(options).then((response) => {
     response.throwForStatus();
     const results = response.json;
-
-    // You can do any parsing you need for results here before returning them
 
     return [results];
   });
@@ -29,11 +27,11 @@ module.exports = {
     cleanInputData: false,
     inputFields: [
       {
-        key: "domain",
-        label: "Domain",
+        key: "query",
+        label: "Query",
         type: "string",
         helpText:
-          "Domain name to retrieve similar domains for (e.g., 'google.com').",
+          'Search query to find domain suggestions (e.g., "google").',
         required: true,
         list: false,
         altersDynamicFields: false,
@@ -42,12 +40,12 @@ module.exports = {
     sample: {
       data: [
         {
-          website_url: "similar-example.com",
-          name: "Similar Example Corp",
+          website_url: "google.com",
+          name: "Google",
         },
         {
-          website_url: "example-clone.com",
-          name: "Example Clone Inc",
+          website_url: "google.co.uk",
+          name: "Google UK",
         },
       ],
     },
@@ -56,11 +54,12 @@ module.exports = {
       { key: "data__name", type: "string" },
     ],
   },
-  key: "similar",
+  key: "domain_suggestions",
   noun: "Domain",
   display: {
-    label: "Similar Domains",
-    description: "Retrieve similar domains based on a specific domain.",
+    label: "Domain Suggestions",
+    description:
+      "Search for domain suggestions based on a query keyword.",
     hidden: false,
   },
 };

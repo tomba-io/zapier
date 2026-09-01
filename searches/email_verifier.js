@@ -1,6 +1,6 @@
 const perform = (z, bundle) => {
   const options = {
-    url: `https://api.tomba.io/v1/email-verifier/${bundle.inputData.email}`,
+    url: `https://api.tomba.io/v1/email-verifier`,
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -8,7 +8,9 @@ const perform = (z, bundle) => {
       "X-Tomba-Key": bundle.authData.api_key,
       "X-Tomba-Secret": bundle.authData.secret_key,
     },
-    params: {},
+    params: {
+      email: bundle.inputData.email,
+    },
   };
 
   // Add optional enrich_mobile parameter if provided
@@ -34,6 +36,7 @@ const perform = (z, bundle) => {
 module.exports = {
   operation: {
     perform: perform,
+    cleanInputData: false,
     inputFields: [
       {
         key: "email",

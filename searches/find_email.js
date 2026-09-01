@@ -8,10 +8,16 @@ const perform = (z, bundle) => {
       "X-Tomba-Key": bundle.authData.api_key,
       "X-Tomba-Secret": bundle.authData.secret_key,
     },
-    params: {
-      domain: bundle.inputData.domain,
-    },
+    params: {},
   };
+
+  // Add domain or company
+  if (bundle.inputData.domain) {
+    options.params.domain = bundle.inputData.domain;
+  }
+  if (bundle.inputData.company) {
+    options.params.company = bundle.inputData.company;
+  }
 
   // Add name parameter - prefer full_name if provided, otherwise combine first_name and last_name
   if (bundle.inputData.full_name) {
@@ -49,13 +55,25 @@ const perform = (z, bundle) => {
 module.exports = {
   operation: {
     perform: perform,
+    cleanInputData: false,
     inputFields: [
       {
         key: "domain",
         label: "Domain",
         type: "string",
-        helpText: 'Please enter a domain name, for example "google.com".',
-        required: true,
+        helpText:
+          'Domain name from which you want to find the email address. For example, "stripe.com". Either domain or company is required.',
+        required: false,
+        list: false,
+        altersDynamicFields: false,
+      },
+      {
+        key: "company",
+        label: "Company",
+        type: "string",
+        helpText:
+          'Company name from which you want to find the email address. For example, "stripe". Either domain or company is required.',
+        required: false,
         list: false,
         altersDynamicFields: false,
       },
